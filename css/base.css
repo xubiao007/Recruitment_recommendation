@@ -1,0 +1,18 @@
+body {
+  height: 100%;
+  background-image: url('../images/bg_log.png');
+}
+#user_icon {
+    font-size: 18px;
+    margin-right: 10px;
+    vertical-align: -3px;
+}
+
+.pub_info {
+    margin-top: 10px;
+
+}
+
+.pub_info.glyphicon-comment {
+    vertical-align: -1px;
+}

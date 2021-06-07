@@ -1,0 +1,36 @@
+body {
+    background-color: #E0F2BE;
+}
+
+#d1 {
+    width: 100px;
+    height: 100px;
+    border: 2px solid blue;
+    border-radius: 100%;
+    text-align:center;
+    overflow: hidden;
+    box-shadow: 10px 10px 5px #888888;
+}
+
+#img1 {
+    width: 100px;
+    height: 100px;
+    vertical-align: middle;
+    display: table-cell;
+    text-align: center;
+}
+
+.img2{
+    vertical-align: middle;
+    text-align: center;
+
+}
+
+.d2{
+    height: 1000px;
+background-color: #F0F0F0;
+vertical-align: middle;  //垂直居中
+text-align: center;  //水平居中
+
+}
+
