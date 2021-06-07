@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+
+{% block mainbody %}
+    <br>
+    <div class="panel panel-info">
+
+        <div class="panel-heading">
+            <h1>我的信息</h1>
+        </div>
+
+        <br>
+        <div class="panel-body">
+            <!--第一列-->
+            <div class="col-md-3"></div>
+
+            <!--第二列-->
+            <div class="col-md-6 text-center well" style="background:#F0F8FF; color:#000">
+                <br><br>
+                <!--头像|信息-->
+                <div class="row">
+
+                    <div class="col-md-6 text-right">
+                        <img id="img1" src="/static/avatars/default.jpg" height="180" width="180" alt="头像">
+                    </div>
+
+                    <div class="col-md-6 text-left">
+
+                        <p class="msg ltype well well-sm" title="用户名:{{ user.name }}">
+                            <span class="glyphicon glyphicon-user"></span>
+                            用户名:{{ user.name }}
+                        </p>
+
+                        <p class="msg ltype well well-sm" title="性别:{{ user.sex }}">
+                            <span class="glyphicon glyphicon-tower"></span>
+                            性别:{{ user.sex }}
+                        </p>
+
+                        <p class="msg ltype well well-sm" title="邮箱:{{ user.email }}">
+                            <span class="glyphicon glyphicon-envelope"></span>
+                            邮箱:{{ user.email }}
+                        </p>
+
+                        <p class="msg ltype well well-sm" title="手机号码:{{ user.phone }}">
+                            <span class="glyphicon glyphicon-phone-alt"></span>
+                            手机号码:{{ user.phone }}
+                        </p>
+
+
+                    </div>
+                </div>
+                <br>
+                <!--附加信息-->
+                <div class="row">
+
+                    <div class="row">
+
+                        <div class="col-md-2"></div>
+                        <div class="col-md-3 text-right label label-info" style="font-size:24px">
+                            <span class="glyphicon glyphicon-book"></span>
+                            <span >学历:</span></div>
+                        <div class="col-md-4 text-left  well well-sm">{{ user.edu }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-3 text-right label label-info" style="font-size:24px">
+                            <span class="glyphicon glyphicon-bookmark"></span>
+                            <span>专业:</span></div>
+                        <div class="col-md-4 text-left well well-sm">{{ user.major }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-3 text-right label label-info" style="font-size:24px">
+                            <span class="glyphicon glyphicon-lock"></span>
+                            <span>职称:</span></div>
+                        <div class="col-md-4 text-left well well-sm">{{ user.title|default:'无' }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-3 text-right label label-info" style="font-size:24px">
+                            <span class="glyphicon glyphicon-list-alt"></span>
+                            <span>技能:</span></div>
+                        <div class="col-md-4 text-left well well-sm">{{ user.skill|default:'无' }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-3 text-right label label-info" style="font-size:24px">
+                            <span class="glyphicon glyphicon-time"></span>
+                            <span>经验:</span></div>
+                        <div class="col-md-4 text-left well well-sm">{{ user.exp|default:'无' }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-3 text-right label label-info" style="font-size:24px">
+                            <span class="glyphicon glyphicon-map-marker"></span>
+                            <span>地址:</span></div>
+                        <div class="col-md-4 text-left well well-sm">{{ user.address|default:'无' }}</div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!--第三列-->
+            <div class="col-md-3"></div>
+        </div>
+    </div>
+
+
+{% endblock %}
+

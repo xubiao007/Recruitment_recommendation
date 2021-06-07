@@ -1,0 +1,131 @@
+{% extends "base.html" %}
+
+{% block mainbody %}
+
+    <br>
+    <div class="panel panel-info">
+
+        <div class="panel-heading">
+            <h1>修改信息</h1>
+        </div>
+
+        <br>
+        <div class="panel-body">
+            <!--第一列-->
+            <div class="col-md-2"></div>
+
+            <!--第二列-->
+            <div class="col-md-8 text-center well" style="background:#F0F8FF; color:#000">
+                <br><br>
+
+                <form class="form-register" action="{% url 'alter_info' %}" method="post">
+
+                    {% if register_form.captcha.errors %}
+                        <div class="alert alert-warning">{{ alter_info_form.captcha.errors }}</div>
+                    {% elif message %}
+                        <div class="alert alert-warning">{{ message }}</div>
+                    {% endif %}
+
+                    {% csrf_token %}
+
+                    <!--修改：头像|信息-->
+                    <div class="row">
+
+                        <div class="col-md-4 text-right">
+                            <img id="img1" src="/static/avatars/default.jpg" height="180" width="180" alt="头像">
+                        </div>
+
+                        <div class="col-md-8 text-left">
+
+                            <div class="form-group-sm">
+                                {{ alter_info_form.username.label_tag }}
+                                {{ alter_info_form.username }}
+                            </div>
+                            <div class="form-group ">
+                                {{ alter_info_form.sex.label_tag }}
+                                <label class="radio-inline">
+                                    {{ alter_info_form.sex }}
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                {{ alter_info_form.email.label_tag }}
+                                {{ alter_info_form.email }}
+                            </div>
+
+                            <div class="form-group">
+                                {{ alter_info_form.phone.label_tag }}
+                                {{ alter_info_form.phone }}
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <br>
+                    <!--修改：附加信息-->
+                    <div class="row">
+
+                        <div class="row">
+
+                            <div class="col-md-3"></div>
+                            <div class="col-md-3 label label-info" style="font-size:24px">
+                                <span class="glyphicon glyphicon-book"></span>
+                                <span>学历:</span>
+                            </div>
+                            <div class="col-md-4">{{ alter_info_form.edu }}</div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-3"></div>
+                            <div class="col-md-3 label label-info" style="font-size:24px">
+                                <span class="glyphicon glyphicon-bookmark"></span>
+                                <span>专业:</span></div>
+                            <div class="col-md-4">{{ alter_info_form.major }}</div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-3"></div>
+                            <div class="col-md-3 label label-info" style="font-size:24px">
+                                <span class="glyphicon glyphicon-lock"></span>
+                                <span>职称:</span></div>
+                            <div class="col-md-4 ">{{ alter_info_form.title }}</div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-3"></div>
+                            <div class="col-md-3 label label-info" style="font-size:24px">
+                                <span class="glyphicon glyphicon-list-alt"></span>
+                                <span>技能:</span></div>
+                            <div class="col-md-4 ">{{ alter_info_form.skill }}</div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-3"></div>
+                            <div class="col-md-3  label label-info" style="font-size:24px">
+                                <span class="glyphicon glyphicon-time"></span>
+                                <span>经验:</span></div>
+                            <div class="col-md-4">{{ alter_info_form.exp }}</div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-3"></div>
+                            <div class="col-md-3 label label-info" style="font-size:24px">
+                                <span class="glyphicon glyphicon-map-marker"></span>
+                                <span>地址:</span></div>
+                            <div class="col-md-4 ">{{ alter_info_form.address }}</div>
+                        </div>
+                        <br><br>
+
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-primary">确定修改</button>
+                    </div>
+                </form>
+            </div>
+
+            <!--第三列-->
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+
+
+{% endblock %}

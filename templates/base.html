@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>招聘信息推荐平台</title>
+    <link rel="stylesheet" href="/static/plugins/bootstrap/dist/css/bootstrap.min.css">
+    <script src="/static/plugins/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/static/js/jquery-3.6.0.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <link href="../static/css/base.css">
+
+    {% block cssstyle %}
+        <!--css文件-->
+    {% endblock %}
+
+    <style>
+
+    </style>
+
+</head>
+
+
+<body background="/static/images/bg_log.png">
+
+{% load static %}
+
+<!-- 导航条设计-->
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">招聘信息推荐平台</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand">招聘信息推荐平台</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href="#">职位搜索 <span class="sr-only">(current)</span></a></li>
+                <li><a href="#">地区资讯</a></li>
+                <li><a href="#">职场百科</a></li>
+
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">欢迎</a></li>
+                <li><a href="#">{{ request.session.user_name }}</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">
+                        <!--"管理"前的图标-->
+                        <span class="glyphicon glyphicon-menu-hamburger"></span>
+                        管理
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{% url 'user_info' %}">个人信息</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">设置</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="{% url 'logout' %}">注销</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+<!-- 分列设计-->
+<div class="container-fluid">
+    <div class="row">
+        <!--第一列-->
+        <div class="col-md-2">
+
+            <div class="nav nav-pills nav-stacked collapse navbar-collapse" id="example-navbar-collapse">
+
+                <li role="presentation"><a href="{% url 'login' %}">
+                    <!--头像-->
+                    <div id="d1 ">
+                        <img id="img1" src="/static/avatars/default.jpg" height="180" width="180" alt="头像">
+                    </div>
+                    <p>{{ request.session.user_name }}</p>
+                </a></li>
+                <li role="presentation"><a href="#">首页</a></li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        我的信息 <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{% url 'user_info' %}">基本信息</a></li>
+                        <li><a href="{% url 'await' %}">职业期待</a></li>
+                        <li class="divider"></li>
+                        <li><a href="{% url 'alter_info' %}">修改信息</a></li>
+                        <li><a href="{% url 'alter_pwd' %}">修改密码</a></li>
+                    </ul>
+                </li>
+
+
+                <li role="presentation"><a href="{% url 'reptile_task' %}">爬虫任务</a></li>
+                <li role="presentation"><a href="{% url 'job_info' %}">招聘信息</a></li>
+                <li role="presentation"><a href="{% url 'recommend_info' %}">推荐列表</a></li>
+                <li role="presentation"><a href="{% url 'collection_manager' %}">收藏管理</a></li>
+
+                <li role="presentation"><a href="{% url 'detail_info' %}">#详情</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        图解分析 <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{% url 'city_job' %}">城市职位排名</a></li>
+                        <li><a href="{% url 'salary_cake' %}">工资分布饼状图</a></li>
+                        <li class="divider"></li>
+                        <li><a href="{% url 'education_num' %}">学历统计图</a></li>
+                        <li><a href="{% url 'experience_num' %}">经验统计图</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        职位云图 <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{% url 'ciyuntu_job' %}">工作词云图</a></li>
+                        <li><a href="{% url 'ciyuntu_welfare' %}">福利词云图</a></li>
+                    </ul>
+                </li>
+
+
+            </div>
+        </div>
+
+        <!--第2列-->
+        <div class="col-md-8">
+            {% block mainbody %}
+                <p>original</p>
+            {% endblock %}
+
+        </div>
+
+        <!--第3列-->
+        <div class="col-md-2">
+            {% block lie3 %}
+
+            {% endblock %}
+
+        </div>
+
+
+    </div>
+</div>
+
+</body>
+</html>

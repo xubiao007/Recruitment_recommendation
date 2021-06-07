@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog_Demo_Home</title>
+    <link rel="stylesheet" type="text/css" href="../CSS_FILES/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../CSS_FILES/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="../CSS_FILES/bootstrap-datetimepicker.css">
+    <script src="../../static/js/jquery-3.6.0.js"></script>
+    <script src="../../static/pluginsbootstrap/dist/js/bootstrap.js"></script>
+    <script src="../JS/bootstrap-datetimepicker.js"></script>
+    <style type="text/css">
+        header{
+            margin-bottom: 0px;
+            padding-bottom: 0px;
+        }
+        .search{
+
+        }
+        .navbar.square{
+            margin-bottom: 0px;
+            height: 40px;
+            border-radius: 0px;
+            border: 0px;
+
+            background-color: #36648B;
+        }
+        .badge-orange{
+            background-color: #FF8C00;
+        }
+        .badge-rss{
+            background-color:#EEEE00;
+        }
+        .badge-danger{
+            background-color: #d9534f;
+        }
+        .badge-success{
+            background-color: #5cb85c;
+        }
+        .badge-warning{
+            background-color: #f0ad4e;
+        }
+        .badge-info{
+            background-color: #5bc0de;
+        }
+
+        .bg-red{
+            color: #FF0000;
+        }
+        .bg-green{
+            color:#66CD00;
+        }
+        .bg-lightblack{
+            color: #4D4D4D;
+        }
+        .bg-blue{
+            color: #63B8FF;
+        }
+        .bg-turtle{
+            color: #551A8B;
+        }
+        .bg-orange{
+            color: #EE5C42;
+        }
+        .bg-white{
+            background-color: #FFFFFF;
+        }
+        .bg-default{
+            background-color: #999999;
+        }
+        .bg-primary{
+            background-color: #428bca;
+        }
+        .bg-success{
+            background-color: #5cb85c;
+        }
+        .bg-info{
+            background-color: #5bc0de;
+        }
+        .bg-warning{
+            background-color: #f0ad4e;
+        }
+        .bg-danger{
+            background-color: #d9534f;
+        }
+        .bg-black{
+            background-color: #424242;
+        }
+        .fg-default{
+            color: #999999;
+        }
+        .fg-primary{
+            color: #428bca;
+        }
+        .fg-success{
+            color: #5cb85c;
+        }
+        .fg-info{
+            color: #5bc0de;
+        }
+        .fg-warning{
+            color: #f0ad4e;
+        }
+        .fg-danger{
+            color: #d9534f;
+        }
+        .fg-lightdark{
+            color: #D6D6D6;
+
+        }
+        .navbar-nav > li > span {
+            padding-top: 20px;
+            width: 20px;
+        }
+
+        .navbar-nav > li {
+            margin-left: 10px;
+            margin-right: 10px;
+
+            padding-left: 5px;
+            padding-right: 5px;
+
+            text-align: center;
+        }
+
+        .navbar-nav > li:hover{
+
+            background-color: #FFFFFF;
+
+
+        }
+        .navbar-nav.fix {
+            margin-bottom: 0px;
+        }
+
+        .navbar .container > ul,
+        .navbar .container> ul > li{
+            height:100%;
+
+        }
+        .navbar .container >ul > li{
+            width: 50px;
+
+        }
+
+        .container.fix{
+            margin-bottom: 0px;
+            padding-bottom: 0px;
+            height: 100%;
+        }
+
+
+
+         .navbar  >ul > li{
+            width: 55px;
+             height: 100%;
+
+        }
+
+        .navbar >ul{
+            height: 100%;
+        }
+        .navbar-header > a{
+            text-align: center;
+        }
+
+        table > tbody > tr > td{
+
+            margin-left: 10px;
+        }
+
+        .table > thead > tr > td {
+            border-bottom: 1px solid #000000;
+
+
+      /*    text-decoration: underline;*/
+        }
+
+        .dd_margin > dd{
+            margin-top:10px;
+             ;
+        }
+        .dd_margin > dd > a{
+            color:#636363;
+        }
+        .dd_margin > dt{
+            margin-top:10px;
+        }
+
+        .section1{
+             width: 100%;
+             height: 768px;
+             margin:0px;
+             padding:0px;
+             background:  url(../../static/images/bg_log.png);
+        }
+        #blog_title{
+            width: 100%;
+            height: 82px;
+        }
+
+       #main{
+            width: 100%;
+            height:100%;
+       }
+       #side{
+            width: 20%;
+            height: 100%;
+            float: left;
+       }
+       #panel_profile{
+            margin-top:15px;
+       }
+       #panel_content{
+            margin-top:15px;
+       }
+       #center{
+            width: 78%;
+            height: 100%;
+            margin-left: 15px;
+            float: left;
+       }
+    </style>
+
+    <script type="text/javascript">
+    $(document).ready(function(){
+
+       $("#search_li").hover(
+        function(){
+
+            $("#tag_div").hide();
+             $("#edit_div").hide();
+              $("#more_div").hide();
+             $("#share_div").hide();
+         $("#search_div").show();
+       }
+       ,function(){
+         $("#search_div").hover(function(){
+                 $("#search_div").show();
+         },function(){
+                $("#search_div").hide();
+         });
+       });
+
+
+        $("#tag_li").hover(
+
+        function(){
+         $("#search_div").hide();
+          $("#edit_div").hide();
+          $("#share_div").hide();
+           $("#more_div").hide();
+         $("#tag_div").show();
+        }
+       ,function(){
+         // $("#search_div").hide();
+         $("#tag_div").hover(function(){
+                 $("#tag_div").show();
+         },function(){
+                $("#tag_div").hide();
+         });
+       });
+
+
+        $("#edit_li").hover(
+        function(){
+          $("#search_div").hide();
+           $("#tag_div").hide();
+           $("#share_div").hide();
+            $("#more_div").hide();
+         $("#edit_div").show();
+        }
+       ,function(){
+         // $("#search_div").hide();
+         $("#edit_div").hover(function(){
+                 $("#edit_div").show();
+         },function(){
+                $("#edit_div").hide();
+         });
+       });
+
+          $("#share_li").hover(
+        function(){
+          $("#search_div").hide();
+           $("#tag_div").hide();
+            $("#edit_div").hide();
+            $("#more_div").hide();
+         $("#share_div").show();
+        }
+       ,function(){
+         // $("#search_div").hide();
+         $("#share_div").hover(function(){
+                 $("#share_div").show();
+         },function(){
+                $("#share_div").hide();
+         });
+       });
+
+
+
+          $("#more_li").hover(
+        function(){
+          $("#search_div").hide();
+           $("#tag_div").hide();
+            $("#edit_div").hide();
+            $("#share_div").hide();
+         $("#more_div").show();
+        }
+       ,function(){
+         // $("#search_div").hide();
+         $("#more_div").hover(function(){
+                 $("#more_div").show();
+         },function(){
+                $("#more_div").hide();
+         });
+       });
+
+    });
+
+    </script>
+
+
+</head>
+<body>
+
+    <header>
+        <nav class="navbar square  navbar-inverse navabar-fixed-top "  >
+
+            <div class="navbar-header">
+                <a href="#" class="navbar-brand">
+                    <span class="fa fa-user fa-lg"><img src="../images/myself.jpg" style="width:30px;height: 30px;border:5px solid
+                     transparent;margin-bottom:5px;">  </span>
+                <!-- <img src="../images/myself.jpg" style="width:25px;height: 25px;margin-left: 2px;">  -->
+                        YeKongle
+                </a>
+
+            </div>
+
+            <ul class="nav navbar-nav  navbar-right fix " style="margin-right: 10px;">
+
+                <li class="search" id="search_li">
+                     <span class="fa fa-search  fa-lg fg-lightdark"></span>
+
+                    <!--  <div class="modal fade show">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="body">
+                                    <form class="form-inline">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="搜索">
+                                            <span class="fa fa-hand-o-right "></span>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                     </div> -->
+
+                        <div class="row" id="search_div" hidden="true" >
+                        <div   class="" style="width:400px;height:50px;border-left: 1px solid #757575;border-right: 1px solid #757575;border-bottom: 1px solid #757575;padding-right: 15px;margin-top: 15px;background-color: #EDEDED;">
+                        <div class="control-group">
+                            <div class="controls">
+                            <div class="input-group" style="text-align: center;padding-top: 8px;padding-left: 5px;padding-right: 5px;">
+                                 <form>
+                                <input type="text" class="col col-lg-2 form-control" id="input_search" placeholder="搜索......">
+                                 </form>
+                                <span class="input-group-addon">
+                                    <a href="">
+                                    <span class="fa fa-hand-o-right fa-lg"></span>
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
+                        </div>
+                        </div>
+                    </div>
+
+
+                </li>
+
+
+                <li class="" id="tag_li" style="float: left;">
+                    <span class="fa fa-tags fa-lg fg-lightdark "></span>
+
+                    <div class="row" id="tag_div" hidden="true" >
+                        <div   style=" width:500px;height:230px;border-left: 1px solid #757575;border-right: 1px solid #757575;border-bottom: 1px solid #757575;padding-top: 5px;padding-right: 10px;margin-top: 15px;margin-right: 150px;right:-400px;position: absolute;background-color: #EDEDED;">
+                             <div class="form-horizontal"  role="form">
+                                <div class="form-group" style=" ">
+                                    <label for="title" class="col-md-2 control-label">标题</label>
+                                    <div class="col-md-10">
+                                        <input type="text" id="title" class="form-control" placeholder="My Bolog">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="tag" class="col-md-2 control-label">标签</label>
+                                    <div class="col-md-10">
+                                        <input type="text" id="tag" class="form-control" placeholder="">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="tag" class="col-md-2 control-label">位置</label>
+                                    <div class="col-md-10" style="margin-top: 10px;">
+                                        <p>个人主页=-<a href="#">我的知识</a><br>
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" >同时保存至&nbsp;选择知识图谱&nbsp;<a href="#">新建</a></label>
+                                          </div>
+                                        </p>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="pull-right" style="margin-right: 15px;">
+
+                                        <button type="button" class="btn btn-sm  btn-default" style="margin-right: 10px;">取消</button>
+                                        <button type="button" class="btn btn-sm btn-danger">收藏</button>
+
+                                </div>
+                             </div>
+                        </div>
+                    </div>
+                </li>
+                 <li id="share_li">
+                    <span class="fa fa-external-link fa-lg fg-lightdark"></span>
+
+                    <div class="row" id="share_div" hidden="true">
+                        <!-- facebook-square google-plus-offical youtube-play qq weixin weibo -->
+                        <div class="" style="width:280px;height:40px;border-left: 1px solid #757575;border-right: 1px solid #757575;border-bottom: 1px solid #757575;padding-top: 0px;margin-top: 15px;padding-right: 15px;background-color: #EDEDED;">
+
+                             <table class="table ">
+                                <tbody>
+                                    <tr style="text-align: center;">
+                                        <td><a href="http://http://weibo.com/"><span class="fa fa-weibo fa-lg bg-red"></span></a></td>
+                                        <td><a href="https://wx.qq.com/"><span class="fa fa-weixin fa-lg bg-green"></span></a></td>
+                                        <td><a href=""><span class="fa fa-qq fa-lg bg-blue"></span></a></td>
+                                        <td><a href="#"><span class="fa fa-facebook-square fa-lg bg-turtle"></span></a></td>
+                                        <td><a href="#"><span class="fa fa-google-plus-official fa-lg bg-orange"></span></a></td>
+                                        <td><a href="#"><span class="fa fa-youtube fa-lg bg-lightblack"></span></a></td>
+                                    </tr>
+                                </tbody>
+                             </table>
+                        </div>
+                    </div>
+                </li>
+                <li class="" id="edit_li">
+                    <span class="fa fa-edit fa-lg fg-lightdark" ></span>
+                    <div class="row" id="edit_div" hidden="true">
+                        <div class="" style="width:180px;height:230px;border-left: 1px solid #757575;border-right: 1px solid #757575;border-bottom: 1px solid #757575;padding-top: 5px;margin-top: 15px;background-color: #EDEDED;">
+                            <table class="table table-hover">
+                                <tbody>
+                                    <tr>
+                                        <td class="fa fa-laptop">&nbsp;传PPT/文档</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fa fa-commenting-o">&nbsp;提问题</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fa fa-edit">&nbsp;写博客</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="fa fa-cloud-upload">&nbsp;传资源</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fa fa-file-text-o">&nbsp;创建项目</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fa fa-code">&nbsp;创建代码片</td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </li>
+
+
+                <li id="more_li">
+                <span class="fa fa-bars fa-lg fg-lightdark"></span>
+
+                <div class="row" id="more_div" hidden="true">
+                    <div class="pull-right" style="width:390px;height:230px;border-left: 1px solid #757575;border-right: 1px solid #757575;border-bottom: 1px solid #757575;padding-top: 0px;margin-top:15px;padding-right: 15px;right: -20px;position: absolute;background-color: #EDEDED;">
+                    <!--    <table class="table">
+                            <thead style="text-align: center;">
+                                <tr>
+                                    <td><strong>社区</strong></td>
+                                    <td><strong>服务</strong></td>
+                                    <td><strong>俱乐部</strong></td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table> -->
+                        <div class="col-lg-4">
+                            <dl class="dd_margin">
+                                <dt>社区</dt>
+                                <dd>
+                                    <a href="#" target="_blank">博客</a>
+                                </dd>
+                                <dd>
+                                    <a href="#" target="_blank">论坛</a>
+                                </dd>
+                                <dd>
+                                    <a href="#" target="_blank">下载</a>
+                                </dd>
+                                <dd>
+                                    <a href="#" target="_blank">知识库</a>
+                                </dd>
+                                <dd>
+                                    <a href="#" target="_blank">技术问答</a>
+                                </dd>
+                                <dd>
+                                    <a href="#" target="_blank">极客头条</a>
+                                </dd>
+                            </dl>
+                         </div>
+                        <div class="col-lg-4">
+                            <dl class="dd_margin">
+                                <dt>服务</dt>
+                                 <dd>
+                                    <a href="#" target="_blank">学院</a>
+                                </dd>
+                                <dd>
+                                    <a href="#" target="_blank">活动</a>
+                                </dd>
+                                <dd>
+                                    <a href="#" target="_blank">CODE</a>
+                                </dd>
+
+                                <dd>
+                                    <a href="#" target="_blank">CSTO</a>
+                                </dd>
+                                <dd>
+                                    <a href="#" target="_blank">人品测试</a>
+                                </dd>
+                            </dl>
+                         </div>
+                        <div class="col-lg-4">
+                            <dl class="dd_margin">
+                                <dt>俱乐部</dt>
+                                 <dd>
+                                    <a href="#" target="_blank">电信俱乐部</a>
+                                </dd>
+                                <dd>
+                                    <a href="#" target="_blank">文法俱乐部</a>
+                                </dd>
+
+                            </dl>
+                         </div>
+                    </div>
+                </div>
+                </li>
+
+            </ul>
+
+        </nav>
+    </header>
+                    <!--  <div class="col col-lg-8" style="width: 100px;border-left: 1px solid #757575;border-right: 1px solid #757575;border-bottom: 1px solid #757575">
+                     <div   id="search_div" class="col col-md-3">
+                        <form class="form-line">
+                            <div class="form-group">
+
+                                    <input type="text" class="form-control placeholder="搜索">
+                                    <span class="pull-right">
+                                        <span class="fa fa-hand-o-right fa-lg"></span>
+                                    </span>
+                                </div>
+
+
+                        </form>
+                     </div>
+                     </div>
+                      -->
+    <section class="section1" >
+         <div class="container">
+            <div class="header">
+                <div id="blog_title">
+
+                    <h2><a href="#">YeKongle的博客</a></h2>
+                    <div class="row" >
+                     <div class="col-xs-6">
+                    <span> <h4 style="color: #FF8C00">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;——低调、博学、修身</h4>  </span>
+                    </div>
+                    <div class="col-xs-6">
+                         <div class="row">
+                         <div class="col-xs-5"></div>
+                         <div class="col-xs-7" style="color:#ccc;">
+                            <div class="col-xs-4"><h5><a href="#" style="float: right;" class="btn btn-default btn-sm fa fa-list">目录视图</a> </h5></div>
+                            <div class="col-xs-4"><h5><a style="float: right;" class="btn btn-default btn-sm fa fa-list">摘要视图</a></h5></div>
+                            <div class="col-xs-4" style="margin-top:5px;"><h5 > <span class="badge badge-danger">RSS</span>订阅</h5></div>
+                         </div>
+                        <!--  <div col-xs-9></div>
+                         <div col-xs-3>
+                            <div class="col-xs-4"><h5><button style="float: right;" class="btn btn-default btn-sm fa fa-list">目录视图</button> </h5></div>
+                            <div class="col-xs-4"><h5><button style="float: right;" class="btn btn-default btn-sm fa fa-list">摘要视图</button></h5></div>
+                            <div class="col-xs-4"><span >  <span class="badge badge-orange">RSS</span>订阅</span></div>
+                         </div> -->
+                        <!--  <div class="col-xs-4"><h5><button style="float: right;" class="btn btn-default btn-sm fa fa-list">目录视图</button> </h5></div>
+                            <div class="col-xs-4"><h5><button style="float: right;" class="btn btn-default btn-sm fa fa-list">摘要视图</button></h5></div>
+                            <div class="col-xs-4"><span >  <span class="badge badge-orange">RSS</span>订阅</span></div> -->
+                            </div>
+                    </div>
+                      </div>
+                    <!--   <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-4"><span class="fa fa-list">目录视图</span></div>
+                            <div class="col-md-4"><span class="fa fa-list">摘要视图</span></div>
+                            <div class="col-md-4"><span class="badge badge-orange">RSS <span>订阅</span></span></div>
+                        </div>
+                     </div> -->
+
+
+
+
+                </div>
+            </div>
+
+            <div id="main">
+                <div id="side">
+                    <div id="panel_profile" class="panel panel-default">
+                        <div class="panel-heading">
+                            个人资料
+                        </div>
+                        <div class="panel-body">
+                            <ul style="display: block;list-style: none;">
+                                <li>
+                                    <div>
+                                        <img class="img-circle" src="../images/myself.jpg" alt="夜空" width="100px" height="100px">
+
+
+                                    </div>
+                                </li>
+                                <li style="padding-left: 35px;">
+                                    夜空
+                                </li>
+
+                            </ul>
+                            <span>
+                                    <button class="btn btn-success"><span class="fa fa-plus fa-sm">加关注</span></button>
+                                    <button class="btn btn-info"><span class="fa fa-envelope fa-sm">发私信</span></button>
+                            </span>
+                            <hr>
+                            <p>访问:&nbsp;&nbsp;<span class="badge badge-orange">99+</span></p>
+                            <p>积分:&nbsp;&nbsp;<span class="badge badge-success">60</span></p>
+                            <p>等级:&nbsp;&nbsp;<span class="badge badge-info">小菜鸟</span></p>
+                            <p>排名:&nbsp;&nbsp;<span class="badge">千里之外</span></p>
+                            <hr>
+                            <table style="width: 100%;">
+                                <tr>
+                                    <td>原创:&nbsp;&nbsp;1</td>
+                                    <td>转载:&nbsp;&nbsp;1</td>
+                                </tr>
+                                <tr>
+                                    <td>译文:&nbsp;&nbsp;1</td>
+                                    <td>评论:&nbsp;&nbsp;0</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div id="center">
+                    <div id="panel_content">
+                        <div class="panel">
+                             <div class="panel-heading">
+                                <div style="display:block;">
+                                    <span class="btn btn-success">转</span>
+                                    <h2 style="display: inline;vertical-align: middle;"><span>印度为何越界不走，真相让印度吓尿</span></h2>
+                                </div>
+                                <div class="pull-right" style="display: inline;color: #ccc;">
+                                    <span class="" >2017-08-15 21:52</span>
+                                    <span class="fa fa-search-minus">1人阅读</span>
+                                    <span class="fa fa-comment-0" style="color: #FF4500;">评论 </span>
+                                    <span class="" style="color: #FF4500;">收藏</span>
+                                    <span class="" style="color: #FF4500;">举报</span>
+                                </div>
+                                <hr>
+                                <div style="display: inline;" >
+                                    <span class="fa fa-list">
+                                        分类:
+                                    </span>
+                                    <div class="btn-group">
+                                    <button data-toggle="dropdown" class="btn btn-default dropdown-toggle" type="button">时事点评 <span class="caret"></span></button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#"></a></li>
+                                        <li><a href="#"></a></li>
+                                        <li><a href="#"></a></li>
+                                    </ul>
+                                    </div>
+                                    <hr>
+                                </div>
+                             </div>
+                             <div class="panel-body">
+                                <p>&nbsp;&nbsp;印度军队在我国洞朗地区越界已经很多天了，明显的侵略的行为，为啥中国一直是外交部发言，国防部很少在新闻上说，因为中国压根没想在那里打仗，虽然中国军队一定在备战，但是却真心不想打，很多人不明白为啥咱被欺负成这样了还不还手，有的愤青就说中国政府无能、软弱，其实站在印度的角度大家想一下，为啥印度会不惜开战的代价也要阻止中国修路呢，有人说修好了路方便中国运兵，这个说法其实是站不住脚的，运兵打仗我们用不着修路的，有很多方法运兵，这只是一个战术问题，不值当的印度冒这么大险，背后的真正原因大家请看一下下图
+                                </p>
+                                <div style="text-align: center;">
+                                <img class="img-rounded" style="width: 300px;height: 400px;" src="../images/photo.jpg">
+                                </div>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+         </div>
+    </section>
+
+    <footer>
+
+    </footer>
+            <!--    <div class="row">
+                    <div style="width: 20%;height:650px;">
+                        <div class="bg-black" style="width:100%;height: 100%;">
+
+                        </div>
+
+                    </div>
+                    <div class=" " style="height: 100%">
+
+                        </div>
+                 </div>  -->
+
+</body>
+</html>

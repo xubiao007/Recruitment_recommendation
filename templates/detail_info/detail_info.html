@@ -1,0 +1,217 @@
+{% extends "base.html" %}
+
+{% block mainbody %}
+    <!--主标题名：职位详细信息-->
+
+    <div class="row text-center vertical-middle-sm well" style="background:#F0F8FF; color:#000">
+        <h1>职位详细信息</h1>
+    </div>
+
+    <!--职位简介-->
+    <div class="panel panel-info">
+
+        <div class="panel-heading">
+            <h1 title="{{ job.job }}">
+                {{ job.job }}
+                <input value="129887144" name="hidJobID" type="hidden">
+            </h1>
+        </div>
+
+        <br>
+        <div class="panel-body">
+            <div class="row" style="background:#F0F8FF; color:#000">
+
+                <div class="col-md-8 text-left">
+
+                    <strong>{{ job.salary }}</strong>
+                    <p>
+                        <a href="{{ job.company_url }}" target="_blank" title="{{ job.company }}">
+                            {{ job.company }}
+                            <em class="icon_b i_link"></em>
+                        </a>
+                        <a class="i_house"
+                           href="{{ job.job_url }}" target="_blank">
+                            查看所有职位
+                        </a>
+                    </p>
+                    <p class="msg ltype"
+                       title="{{ detail_job.attribute|default:'无' }}">
+                        {{ detail_job.attribute|default:'无' }}
+                    </p>
+                    <p class="msg ltype"
+                       title="{{ job.welfare|default:'节假日' }}">
+                        {{ job.welfare|default:'节假日' }}
+                    </p>
+                    <p class="msg ltype"
+                       title="英语要求：{{ detail_job.english|default:'无' }}">
+                        英语要求：{{ detail_job.english|default:'无' }}
+                    </p>
+                </div>
+
+                <div class="col-md-4 text-center">
+                    <br><br>
+                    <!--申请职位-->
+                    <a href="{{ job.company_url }}" class="btn btn-primary btn-lg" role="button">
+                        <img width="19" height="24" src="//img05.51jobcdn.com/im/jobs/but_sq_arr.png" alt=""/>申请职位
+                    </a>
+
+                    <!--收藏-->
+                    <a href="#" class="btn btn-primary btn-lg" role="button">
+                        <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>收藏
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!--职位信息、任职资格和联系方式-->
+    <div class="panel panel-info">
+
+        <div class="panel-heading">
+            <h2>
+                <span class="bname">职位信息</span>
+            </h2>
+        </div>
+        <div class="panel-body">
+            <div style="background:#F0F8FF; color:#000">
+
+
+                <div class="bmsg job_msg inbox">
+                    {{ detail_job.job_info|default:'无' }}
+
+
+                    <div class="share"><a class="a">微信分享</a>
+                        <div id="weixinMa_fx" style="display:none;">
+
+                        </div>
+                    </div>
+
+                    <div class="clear"></div>
+                </div>
+
+
+                <div class="tBorderTop_box">
+                    <h2><span class="bname">联系方式</span></h2>
+                    <div>
+                        <p class="fp">{{ detail_job.release|default:'无' }}
+                            <a class="icon_b i_map">地图</a>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--公司信息-->
+    <div class="panel panel-info">
+
+        <div class="panel-heading">
+            <h2><span class="bname">公司信息</span></h2>
+        </div>
+
+        <div class="panel-body">
+            <div style="background:#F0F8FF; color:#000">
+                <div class="tBorderTop_box">
+                    <div class="com_msg">
+                        <a class="com_name " href="https://jobs.51job.com/all/co5346459.html" target="_blank">
+                            <p title="{{ job.company }}">{{ job.company }}</p>
+                        </a>
+                    </div>
+
+                    <div class="com_tag">
+                        <p class="at" title="公司性质:{{ detail_job.cp_nature|default:'无' }}"><span
+                                class="i_flag"></span>公司性质:{{ detail_job.cp_nature|default:'无' }}</p>
+                        <p class="at" title="公司规模：{{ detail_job.cp_scale|default:'无' }}"><span
+                                class="i_people"></span>公司规模：{{ detail_job.cp_scale|default:'无' }}</p>
+                        <p class="at" title="公司行业：{{ detail_job.cp_industry|default:'无' }}">
+                            <span class="i_trade"></span>
+                            公司行业：{{ detail_job.cp_industry|default:'无' }}
+                        </p>
+                    </div>
+
+                    <div class="tBorderTop_box">
+                        <h3><span class="bname">公司介绍</span></h3>
+                        <div class="tmsg inbox">
+                            {{ detail_job.cp_info|default:'无' }}
+                        </div>
+                    </div>
+
+                    <a class="icon_b i_house"
+                       href="{{ job.company_url }}" target="_blank"><span
+                            class="icon_det"></span>查看所有职位</a>
+                </div>
+                <input type="hidden" id="sign" value="">
+                <input type="hidden" id="data" value=''>
+                <input type="hidden" id="jobid" value='129887144'>
+
+                <div class="tBorderTop_box" id="similarjob">
+                    <h2>
+                        <span class="bname">相似职位</span>
+                        <a class="op i_reflash" href="https://jobs.51job.com/shanghai-jaq/tuijian/tj129887144/">+ 更多</a>
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--old vision
+    <div class="row">
+        基础招聘信息
+        <div class="row">
+            <div class="col-md-4 text-right"><span>职位名称：</span></div>
+            <div class="col-md-8 text-left">{{ job.job }}</div>
+        </div>
+            工作薪资:{{ job.salary }}
+            工作城市:{{ job.city }}
+            经验:{{ job.exp }}
+            学历:{{ job.edu }}
+            招聘人数:{{ job.job_num }}
+            公司名称:{{ job.company }}
+            福利:{{ job.welfare|default:'无' }}
+        职位投简链接-
+        {{ job.job_url|default:'无' }}
+        公司详情链接
+        {{ job.company_url|default:'无' }}
+
+
+        详细招聘信息
+要求标签:{{ detail_job.attribute|default:'无' }}
+英语要求:{{ detail_job.english|default:'无' }}
+            岗位详情:{{ detail_job.job_info|default:'无' }}
+            上班地址:{{ detail_job.address|default:'无' }}
+            发布时间:{{ detail_job.release|default:'无' }}
+            公司性质:{{ detail_job.cp_nature|default:'无' }}
+            公司规模:{{ detail_job.cp_scale|default:'无' }}
+            公司行业:{{ detail_job.cp_industry|default:'无' }}
+公司介绍:{{ detail_job.cp_info|default:'无' }}
+
+-->
+
+
+
+{% endblock %}
+
+
+{% block lie3 %}
+    <div class="panel panel-info">
+        <div class="panel-heading">推荐
+            <div class="panel-body">......
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-info">
+        <div class="panel-heading">我的收藏
+            <div class="panel-body">......
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-info">
+        <div class="panel-heading">我的消息
+            <div class="panel-body">......
+            </div>
+        </div>
+    </div>
+{% endblock %}

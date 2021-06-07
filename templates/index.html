@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>招聘信息推荐平台--首页</title>
+
+    <link rel="stylesheet" href="/static/plugins/bootstrap/dist/css/bootstrap.min.css">
+    <script src="/static/plugins/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/static/js/jquery-3.6.0.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <link href="../static/css/index.css">
+
+    {% block cssstyle %}
+        <!--css文件-->
+    {% endblock %}
+
+</head>
+
+
+<body>
+
+{% load static %}
+
+<!-- 导航条设计-->
+<nav class="navbar navbar-inverse">
+    <!-- navbar——设置nav元素为导航条组件；
+.navbar-default——指定导航条组件为默认主题；
+.navbar-inverse——指定导航条组件为黑色主题；
+.navbar-fixed-top——设置导航条组件固定在顶部；
+.navbar-fixed-bottom——设置导航条组件固定在底部；
+.container-fluid——设置宽度充满父元素，即为100%；
+.navbar-header——主要指定div元素为导航条组件包裹品牌图标及切换按钮；
+.navbar-toggle——设置button元素为导航条组件的切换钮；
+.collapsed——设置button元素为在视口小于768px时才显示；
+.navbar-brand——设置导航条组件内的品牌图标；-->
+
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">招聘信息推荐平台</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand">招聘信息推荐平台</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href="{% url 'home_tip' %}">职位搜索 <span class="sr-only">(current)</span></a></li>
+                <li><a href="{% url 'home_tip' %}">地区资讯</a></li>
+                <li><a href="{% url 'home_tip' %}">职场百科</a></li>
+
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="{% url 'login' %}">登陆</a></li>
+                <li><a href="{% url 'register' %}">注册</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">
+                        <!--"管理"前的图标-->
+                        <span class="glyphicon glyphicon-menu-hamburger"></span>
+                        管理
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{% url 'home_tip' %}">个人信息</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="{% url 'home_tip' %}">设置</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="{% url 'home_tip' %}">注销</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+
+<!-- 分列设计-->
+<div class="container-fluid">
+    <div class="row">
+        <!--第一列-->
+        <div class="col-md-2">
+
+            <div class="nav nav-pills nav-stacked collapse navbar-collapse" id="example-navbar-collapse">
+                <li role="presentation"><a href="{% url 'login' %}">
+                    <!--头像-->
+                    <div id="d1 ">
+                        <img id="img1" src="/static/avatars/unlogin.png" alt="头像">
+                    </div>
+                    <p>未登录</p>
+                </a></li>
+                <li class="active" role="presentation"><a href="{% url 'login' %}">首页</a></li>
+
+                <li id="ul1" class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        我的信息 <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{% url 'home_tip' %}">基本信息</a></li>
+                        <li><a href="{% url 'home_tip' %}">职业期待</a></li>
+                        <li class="divider"></li>
+                        <li><a href="{% url 'home_tip' %}">修改信息</a></li>
+                        <li><a href="{% url 'home_tip' %}">修改密码</a></li>
+                    </ul>
+                </li>
+
+
+                <li role="presentation"><a href="{% url 'home_tip' %}">爬虫任务</a></li>
+                <li role="presentation"><a href="{% url 'home_tip' %}">招聘信息</a></li>
+                <li role="presentation"><a href="{% url 'home_tip' %}">推荐列表</a></li>
+                <li role="presentation"><a href="{% url 'home_tip' %}">收藏管理</a></li>
+                <li role="presentation"><a href="{% url 'home_tip' %}">图解分析</a></li>
+                <li role="presentation"><a href="{% url 'home_tip' %}">职位云图</a></li>
+
+
+            </div>
+        </div>
+
+        <!--第2列-->
+        <div class="col-md-8">
+            {% if message %}
+                <div class="alert alert-warning">{{ message }}</div>
+            {% endif %}
+
+            {% block mainbody %}
+
+                <div id="d2">
+                    <br><br><br><br><br><br><br>
+                    <img id="img1" src="/static/images/log.png" alt="index_log">
+                </div>
+            {% endblock %}
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

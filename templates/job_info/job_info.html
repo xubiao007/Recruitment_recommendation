@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">{% extends "base.html" %}
+
+{% block mainbody %}
+
+    <div class="container">
+        <div class="col">
+            {% if message %}
+                <div class="alert alert-warning">{{ message }}</div>
+            {% endif %}
+
+
+            <h3 class="text-center">职位信息</h3>
+            <!--显示爬取任务信息-->
+            <br>
+            <div style="background:#F0F8FF; color:#000">
+                <form class="form-register" action="{% url 'job_info' %}" method="post">
+                    {% csrf_token %}
+                    <table class="table table-striped">
+                        <caption>职位信息</caption>
+                        <thead>
+                        <tr>
+                            <td>职位名称</td>
+                            <td>薪资</td>
+                            <td>工作城市</td>
+                            <td>经验</td>
+                            <td>学历</td>
+                            <td>招聘人数</td>
+                            <td>公司名称</td>
+                            <td>福利</td>
+                            <td>详情</td>
+                            <td>收藏</td>
+                        </tr>
+                        </thead>
+                        {% for job in job %}
+                            <tbody>
+                            <tr>
+                                <td>{{ job.job }}</td>
+                                <td>{{ job.salary }}</td>
+                                <td>{{ job.city }}</td>
+                                <td>{{ job.exp }}</td>
+                                <td>{{ job.edu }}</td>
+                                <td>{{ job.job_num }}</td>
+                                <td>{{ job.company }}</td>
+                                <td>{{ job.welfare }}</td>
+                                <td>
+                                    <button type="submit" class="btn btn-primary float-right">详情</button>
+                                </td>
+                                <td>
+                                    <button type="submit" class="btn btn-primary float-right">收藏</button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        {% endfor %}
+                    </table>
+                </form>
+            </div>
+
+        </div>
+    </div> <!-- /container -->
+
+    <nav aria-label="Page navigation ">
+        <ul class="pagination">
+            <li>
+                <a href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li>
+                <a href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+
+{% endblock %}

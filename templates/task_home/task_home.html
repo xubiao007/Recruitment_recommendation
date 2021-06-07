@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+
+{% block mainbody %}
+
+    <div class="container">
+        <div class="col">
+            {% if message %}
+                <div class="alert alert-warning">{{ message }}</div>
+            {% endif %}
+
+
+            <h3 class="text-center">爬虫任务</h3>
+            <br><br><br>
+            <!--填写关键词-->
+            <div style="background:#F0F8FF; color:#000">
+                <form class="form-register" action="{% url 'reptile_task' %}" method="post">
+                    {% csrf_token %}
+
+                    <div class="form-group">
+                        {{ job_key_forms.job_key.label_tag }}
+                        {{ job_key_forms.job_key }}
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-primary float-left">确定添加</button>
+                    </div>
+                </form>
+            </div>
+
+            <br><br>
+            <!--显示搜索的共有页数和填写所需页数-->
+            <form class="form-register" action="{% url 'reptile_task' %}" method="post">
+                {% csrf_token %}
+                <div style="background:#F0F8FF; color:#000" class="table-responsive">
+                    <table class="table table-condensed">
+                        <caption>搜索的关键词页数</caption>
+                        <thead>
+                        <tr>
+                            <td>职业名称</td>
+                            <td>共有页数</td>
+                            <td>所需页数</td>
+                            <td>操作</td>
+                        </tr>
+                        </thead>
+                        {% for reptile in rep_page %}
+                            <tbody>
+                            <tr class="active">
+                                <td>{{ reptile.job_key }}</td>
+                                <td>{{ reptile.total_page }}</td>
+                                <td>
+                                    {{ required_page_forms.requires_page.label_tag }}
+                                    {{ required_page_forms.requires_page }}
+                                </td>
+                                <td>
+                                    <button type="submit" class="btn btn-primary float-right">确定任务</button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        {% endfor %}
+                    </table>
+                </div>
+            </form>
+
+            <br><br>
+
+            <!--显示爬取任务信息-->
+
+            <form class="form-register" action="{% url 'reptile_task' %}" method="post">
+                {% csrf_token %}
+                <div style="background:#F0F8FF; color:#000" class="table-responsive">
+                    <table class="table">
+                        <caption>爬取任务信息</caption>
+                        <thead>
+                        <tr>
+                            <td>职业名称</td>
+                            <td>共有页数</td>
+                            <td>所需页数</td>
+                            <td>状态</td>
+                            <td>运行时间</td>
+                            <td>创建时间</td>
+                            <td>操作</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for reptile in rep_info %}
+                            <tr class="success">
+                                <td>{{ reptile.job_key }}</td>
+                                <td>{{ reptile.total_page }}</td>
+                                <td>{{ reptile.required_page }}</td>
+                                <td>{{ reptile.state }}</td>
+                                <td>{{ reptile.run_time }}</td>
+                                <td>{{ reptile.date }}</td>
+                                <td>
+                                    <button type="submit" class="btn btn-primary float-right">删除任务</button>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </form>
+
+
+        </div>
+    </div> <!-- /container -->
+
+{% endblock %}

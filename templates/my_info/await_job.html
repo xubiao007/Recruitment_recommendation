@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block mainbody %}
+
+    <div class="container">
+        <div class="col">
+            <form class="form-register" action="{% url 'await' %}" method="post">
+
+                {% if message %}
+                    <div class="alert alert-warning">{{ message }}</div>
+                {% endif %}
+
+                {% csrf_token %}
+                <h3 class="text-center">职业期待</h3>
+                <div style="background:#F0F8FF; color:#000" class="table-responsive">
+                    <div class="form-group">
+                        {{ await_job_Form.type.label_tag }}
+                        {{ await_job_Form.type }}
+                    </div>
+                    <div class="form-group">
+                        {{ await_job_Form.city.label_tag }}
+                        {{ await_job_Form.city }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ await_job_Form.major.label_tag }}
+                        {{ await_job_Form.major }}
+                    </div>
+                    <div class="form-group">
+                        {{ await_job_Form.position.label_tag }}
+                        {{ await_job_Form.position }}
+                    </div>
+
+                    <div>
+                        <button type="submit" class="btn btn-primary float-right">确定添加</button>
+                    </div>
+                </div>
+            </form>
+            <!--显示添加的职位信息情况-->
+            <br><br>
+
+
+            <div style="background:#F0F8FF; color:#000" class="table-responsive">
+                <p>期待名单</p>
+                <table class="table">
+
+                    <thead>
+                    <tr>
+                        <td>职业类型</td>
+                        <td>期待城市</td>
+                        <td>专业方向</td>
+                        <td>职位名称</td>
+                        <td>创建时间</td>
+                    </tr>
+                    </thead>
+                    {% for awa in awa %}
+                        <tbody>
+                        <tr class="success">
+                            <td>{{ awa.type }}</td>
+                            <td>{{ awa.city }}</td>
+                            <td>{{ awa.major }}</td>
+                            <td>{{ awa.position }}</td>
+                            <td>{{ awa.date }}</td>
+                        </tr>
+                        </tbody>
+                    {% endfor %}
+                </table>
+            </div>
+
+        </div>
+    </div> <!-- /container -->
+
+{% endblock %}
+
+
+
